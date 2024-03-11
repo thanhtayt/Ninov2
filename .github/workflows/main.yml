@@ -30,7 +30,7 @@ jobs:
       - name: Add and Commit changes
         run: |
           git add .
-          git commit -m "Add downloaded file"
+          git commit -m "Add file"
           
       - name: Push changes to GitHub
         uses: ad-m/github-push-action@master

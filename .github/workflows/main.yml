@@ -33,6 +33,7 @@ jobs:
           git commit -m "Add file"
           
       - name: Push changes to GitHub
-        uses: ad-m/github-push-action@master
+        run: |
+          git push -u origin main
         with:
           github_token: ${{ secrets.GTOKEN }}

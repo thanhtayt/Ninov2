@@ -15,6 +15,11 @@ jobs:
       - name: Add file
         run: echo "Hello, World!" > new_file.txt
       
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
       - name: Commit and push changes
         run: |
           git config --local user.email "actions@github.com"

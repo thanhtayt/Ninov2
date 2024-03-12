@@ -1,19 +1,24 @@
-name: Push file
+name: Push File
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   push-file:
     runs-on: ubuntu-latest
     steps:
-
-      - uses: actions/checkout@v3
-
-      - name: Push file
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Add file
+        run: echo "Hello, World!" > new_file.txt
+      
+      - name: Commit and push changes
         run: |
-          echo "Hello, world!" > hello.txt
-          git add hello.txt
-          git commit -m "Add hello.txt"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Add new file via GitHub Action"
           git push

@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      • uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      • name: Push file
+      - name: Push file
         run: |
           echo "Hello, world!" > hello.txt
           git add hello.txt

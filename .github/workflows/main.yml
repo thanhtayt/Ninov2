@@ -1,39 +1,19 @@
-name: Download and Push File
+name: Push file
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  download_and_push:
+  push-file:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
-      - name: Install gdown
-        run: sudo apt-get install python3-pip && pip3 install gdown
+      • uses: actions/checkout@v3
 
-      - name: Download file from Google Drive
-        run: gdown 1Got1hEUUKlodN7uIOmEI_8AtA8AHdBoH
-
-      - name: Unzip file
-        run: unzip Nino-v2.zip
-
-      - name: Configure Git
+      • name: Push file
         run: |
-          git config user.name "thanhtayt"
-          git config user.email "hungh6122@gmail.com"
-
-      - name: Add and Commit changes
-        run: |
-          git add .
-          git commit -m "Add file"
-          
-      - name: Push changes to GitHub
-        run: |
-          git push -u origin main
-        with:
-          github_token: ${{ secrets.GTOKEN }}
+          echo "Hello, world!" > hello.txt
+          git add hello.txt
+          git commit -m "Add hello.txt"
+          git push
